@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "digicommpy"
 version = "2.0.0a1"
 description = "Companion code for Digital Modulations using Python"
+license = { file = "LICENSE" }
 requires-python = ">=3.10"
 dependencies = [
     "numpy>=1.24",
