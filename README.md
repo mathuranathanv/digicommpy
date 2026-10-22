@@ -11,10 +11,10 @@ Released under the MIT License. See [LICENSE](LICENSE).
 Python 3.10 or newer. NumPy, SciPy, and Matplotlib are installed with the package.
 
 ```bash
-pip install digicommpy==2.0.0
+pip install digicommpy==2.0.1
 ```
 
-That is release 2.0.0. After it installs, `import digicommpy` works from any directory. Do not add the folder with `sys.path`.
+That is release 2.0.1. It is the same code as 2.0.0, and it is the release whose project page carries this description. After it installs, `import digicommpy` works from any directory. Do not add the folder with `sys.path`.
 
 From a checkout of this repository, install the local tree with `pip install -e .`.
 
@@ -48,4 +48,4 @@ pip install -e ".[dev]"
 pytest
 ```
 
-That command reruns the numerical checks for every chapter. Release 2.0.0 passed them.
+That command reruns the numerical checks for every chapter. Release 2.0.1 passed them.
