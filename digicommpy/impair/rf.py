@@ -18,6 +18,7 @@ def apply_iq(symbols: NDArray, g: float, phi: float) -> NDArray:
 
 
 def apply_dc(symbols: NDArray, dc_i: float, dc_q: float) -> NDArray:
+    """Add a constant offset on the I rail and on the Q rail."""
     return np.asarray(symbols, dtype=complex) + (dc_i + 1j * dc_q)
 
 

@@ -50,6 +50,7 @@ def gardner_scurve(
     k0: int,
     k1: int,
 ) -> float:
+    """Mean Gardner timing error from symbol `k0` up to, but not including, `k1`."""
     errors = [gardner_error(wave, delay, sps, tau, k) for k in range(k0, k1)]
     return float(np.mean(errors))
 

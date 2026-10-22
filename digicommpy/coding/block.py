@@ -8,6 +8,7 @@ from digicommpy.performance.error_rates import qfunc
 
 
 def repetition_encode(bits: NDArray, repeats: int = 3) -> NDArray[np.integer]:
+    """Repeat each bit `repeats` times."""
     return np.repeat(np.asarray(bits, dtype=int), repeats)
 
 

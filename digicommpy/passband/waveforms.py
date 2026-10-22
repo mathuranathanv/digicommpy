@@ -38,6 +38,7 @@ def dbpsk_product_bits(symbols: NDArray[np.complexfloating]) -> NDArray[np.integ
 
 
 def upsample_hold(symbols: NDArray, sps: int) -> NDArray:
+    """Repeat each symbol for `sps` samples."""
     return np.repeat(symbols, sps)
 
 
@@ -48,6 +49,7 @@ def bpsk_baseband(bits: NDArray, sps: int) -> NDArray[np.floating]:
 
 
 def bpsk_passband(bits: NDArray, sps: int, fc: float, fs: float) -> tuple[NDArray, NDArray]:
+    """Hold each BPSK symbol and multiply by a cosine at carrier frequency `fc`."""
     bb = bpsk_baseband(bits, sps)
     t = np.arange(bb.size) / fs
     return t, bb * np.cos(2 * np.pi * fc * t)
@@ -66,6 +68,7 @@ def qpsk_symbols(bits: NDArray) -> NDArray[np.complexfloating]:
 
 
 def shaped_qpsk(bits: NDArray, sps: int, beta: float = 0.35, span: int = 8) -> NDArray:
+    """Gray QPSK, one symbol every `sps` samples, filtered by a root-raised cosine."""
     symbols = qpsk_symbols(bits)
     h = root_raised_cosine(span, sps, beta)
     stuffed = np.zeros(symbols.size * sps, dtype=complex)
@@ -108,6 +111,7 @@ def pi4_dqpsk_symbols(bits: NDArray) -> NDArray[np.complexfloating]:
 
 
 def shaped_pi4(bits: NDArray, sps: int, beta: float = 0.35, span: int = 8) -> NDArray:
+    """pi/4-DQPSK symbols filtered by a root-raised cosine."""
     symbols = pi4_dqpsk_symbols(bits)
     h = root_raised_cosine(span, sps, beta)
     stuffed = np.zeros(symbols.size * sps, dtype=complex)
@@ -127,6 +131,7 @@ def cpm_phase(bits: NDArray, sps: int, h: float) -> NDArray[np.floating]:
 
 
 def cpm_complex(bits: NDArray, sps: int, h: float) -> NDArray[np.complexfloating]:
+    """Unit-magnitude CPM waveform whose phase is `cpm_phase`."""
     return np.exp(1j * cpm_phase(bits, sps, h))
 
 

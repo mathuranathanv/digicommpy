@@ -6,6 +6,7 @@ from numpy.typing import NDArray
 
 
 def add_cyclic_prefix(block: NDArray, cp: int) -> NDArray:
+    """Copy the last `cp` samples to the front of the block."""
     if cp < 0 or cp > block.size:
         raise ValueError("cyclic prefix length must lie between 0 and the block length")
     if cp == 0:

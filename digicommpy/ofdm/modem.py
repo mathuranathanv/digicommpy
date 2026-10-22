@@ -37,4 +37,5 @@ def receive(symbols: NDArray, h: NDArray, cp: int) -> NDArray:
 
 
 def channel_bins(h: NDArray, nfft: int) -> NDArray:
+    """One DFT bin of the impulse response for each subcarrier."""
     return np.fft.fft(np.asarray(h, dtype=complex), n=nfft)

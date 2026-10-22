@@ -10,6 +10,7 @@ from scipy.special import erfc
 
 
 def qfunc(x: np.ndarray | float) -> np.ndarray:
+    """Gaussian right-tail probability Q(x)."""
     return 0.5 * erfc(np.asarray(x, dtype=float) / np.sqrt(2))
 
 

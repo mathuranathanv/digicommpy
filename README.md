@@ -11,18 +11,12 @@ Released under the MIT License. See [LICENSE](LICENSE).
 Python 3.10 or newer. NumPy, SciPy, and Matplotlib are installed with the package.
 
 ```bash
-pip install git+https://github.com/mathuranathanv/digicommpy.git
+pip install digicommpy==2.0.0
 ```
 
-After that, `import digicommpy` works from any directory. Do not add the folder with `sys.path`.
+That is release 2.0.0. After it installs, `import digicommpy` works from any directory. Do not add the folder with `sys.path`.
 
-From a checkout of this repository, the same install is:
-
-```bash
-pip install -e .
-```
-
-`pip install digicommpy` asks PyPI for a release. Nothing is uploaded there. The version in this repository is `2.0.0a1`, and pip does not select a pre-release unless the version is requested, so that short command will not install this package.
+From a checkout of this repository, install the local tree with `pip install -e .`.
 
 ## Chapters
 
@@ -44,3 +38,14 @@ Each folder under `digicommpy/` is one part of the book.
 `chapter1`, `chapter2`, `chapter4`, `chapter5`, and `chapter6` are check scripts for those chapters. Chapters 3, 7, 8, 9, and 10 have no separate check script. The functions those chapters call live in the folders in the table.
 
 Tested with NumPy 1.24 or newer, SciPy 1.11 or newer, and Matplotlib 3.8 or newer.
+
+## Checks
+
+From a checkout:
+
+```bash
+pip install -e ".[dev]"
+pytest
+```
+
+That command reruns the numerical checks for every chapter. Release 2.0.0 passed them.
